@@ -31,17 +31,17 @@ jobs:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
         # Build and deploy the container app
-        - name: Build and deploy Container App
-          uses: azure/container-apps-deploy-action@v0
-          with:
-            acrName: acalevelupdemoacr
-            acrUsername: ${{ secrets.REGISTRY_USERNAME }}
-            acrPassword: ${{ secrets.REGISTRY_PASSWORD }}
-            containerAppName: acalevelupapp
-            containerAppEnvironment: acalevelupenv
-            resourceGroup: acalevelup
-            imageToDeploy: acalevelupdemoacr.azurecr.io/samples/blue5:latest
-
+        #- name: Build and deploy Container App
+        #  uses: azure/container-apps-deploy-action@v0
+        #  with:
+         #   acrName: acalevelupdemoacr
+          #  acrUsername: ${{ secrets.REGISTRY_USERNAME }}
+           # acrPassword: ${{ secrets.REGISTRY_PASSWORD }}
+           # containerAppName: acalevelupapp
+           # containerAppEnvironment: acalevelupenv
+           # resourceGroup: acalevelup
+            # imageToDeploy: acalevelupdemoacr.azurecr.io/samples/blue5:latest
+         
         - name: 'Deploy Container App'
           uses: Azure/cli@v1
           with:
@@ -49,4 +49,4 @@ jobs:
               echo "Installing containerapp extension"
               az extension add -n containerapp --yes
               echo "Starting Deploying"
-              az containerapp revision copy -n weather-frontend -g acalevelup -i acalevelupdemoacr.azurecr.io/samples/green:latest
+              az containerapp revision copy -n acalevelupapp -g acalevelup -i acalevelupdemoacr.azurecr.io/samples/green:latest
