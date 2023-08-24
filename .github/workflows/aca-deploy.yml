@@ -41,3 +41,12 @@ jobs:
             containerAppEnvironment: acalevelupenv
             resourceGroup: acalevelup
             imageToDeploy: acalevelupdemoacr.azurecr.io/samples/blue5:latest
+
+        - name: 'Deploy Container App'
+          uses: Azure/cli@v1
+          with:
+            inlineScript: |
+              echo "Installing containerapp extension"
+              az extension add -n containerapp --yes
+              echo "Starting Deploying"
+              az containerapp revision copy -n weather-frontend -g acalevelup -i acalevelupdemoacr.azurecr.io/samples/green:latest
