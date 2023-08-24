@@ -38,7 +38,7 @@ jobs:
             acrName: acalevelupdemoacr
             acrUsername: ${{ secrets.REGISTRY_USERNAME }}
             acrPassword: ${{ secrets.REGISTRY_PASSWORD }}
-            containerAppName: srgithubtest
+            containerAppName: acalevelupapp
             containerAppEnvironment: acalevelupenv
             resourceGroup: acalevelup
             imageToDeploy: acalevelupdemoacr.azurecr.io/samples/blue5:latest
