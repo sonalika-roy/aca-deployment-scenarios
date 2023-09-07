@@ -41,7 +41,15 @@ jobs:
            # containerAppEnvironment: acalevelupenv
            # resourceGroup: acalevelup
             # imageToDeploy: acalevelupdemoacr.azurecr.io/samples/blue5:latest
-         
+        - name: Add or update a container registry's details
+          uses: azure/CLI@v1
+          with:
+            inlineScript: |
+              az containerapp registry set \
+              --name srtesthelloapp \
+              --resource-group ms-learnlive \
+              --server acalevelupdemoacr.azurecr.io \
+              --identity system
         - name: 'Deploy Container App'
           uses: Azure/cli@v1
           with:
