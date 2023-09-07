@@ -49,4 +49,4 @@ jobs:
               echo "Installing containerapp extension"
               az extension add -n containerapp --yes
               echo "Starting Deploying"
-              az containerapp revision copy -n acalevelupapp -g acalevelup -i acalevelupdemoacr.azurecr.io/samples/green:latest
+              az containerapp revision copy -n srtesthelloapp -g ms-learnlive -i acalevelupdemoacr.azurecr.io/samples/green:latest
