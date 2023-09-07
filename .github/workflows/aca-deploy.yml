@@ -46,7 +46,7 @@ jobs:
           with:
             inlineScript: |
               az containerapp registry set \
-              --name srtesthelloapp \
+              --name srretest \
               --resource-group ms-learnlive \
               --server acalevelupdemoacr.azurecr.io \
               --identity system
@@ -57,4 +57,4 @@ jobs:
               echo "Installing containerapp extension"
               az extension add -n containerapp --yes
               echo "Starting Deploying"
-              az containerapp up -n srtesthelloapp -g ms-learnlive -i acalevelupdemoacr.azurecr.io/samples/green:latest
+              az containerapp up -n srretest -g ms-learnlive -i acalevelupdemoacr.azurecr.io/samples/green:latest
